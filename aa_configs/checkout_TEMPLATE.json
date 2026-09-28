@@ -1,0 +1,58 @@
+{
+    "rsid": "YOUR_RSID_HERE",
+    "globalFilters": [
+        {
+            "type": "dateRange",
+            "dateRange": "2026-06-09T00:00:00.000/2026-08-10T00:00:00.000"
+        }
+    ],
+    "metricContainer": {
+        "metrics": [
+            {
+                "columnId": "1",
+                "id": "metrics/visits",
+                "filters": ["0"],
+                "sort": "desc"
+            },
+            {
+                "columnId": "2",
+                "id": "metrics/__CHECKOUT_METRIC_ID__",
+                "filters": ["1"]
+            }
+        ],
+        "metricFilters": [
+            {
+                "id": "0",
+                "type": "segment",
+                "segmentId": "YOUR_SEGMENT_ID_HERE"
+            },
+            {
+                "id": "1",
+                "type": "segment",
+                "segmentId": "YOUR_SEGMENT_ID_HERE"
+            }
+        ]
+    },
+    "dimension": "variables/evar63",
+    "search": {
+        "clause": "( NOT MATCH '(Low Traffic)' ) AND ( NOT MATCH 'Unspecified' )"
+    },
+    "settings": {
+        "countRepeatInstances": true,
+        "includeAnnotations": true,
+        "nonesBehavior": "return-nones",
+        "limit": 50,
+        "page": 0
+    },
+    "statistics": {
+        "functions": ["col-max", "col-min"]
+    },
+    "capacityMetadata": {
+        "associations": [
+            {"name": "applicationName", "value": "Analysis Workspace UI"},
+            {"name": "projectId", "value": "YOUR_PROJECT_ID_HERE"},
+            {"name": "projectName", "value": "Attribution Model"},
+            {"name": "panelName", "value": "체크아웃 시작 이력 — 캠페인 이전 기간 기준 (사전 특성)"}
+        ]
+    }
+}
